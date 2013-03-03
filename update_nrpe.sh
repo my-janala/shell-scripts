@@ -28,6 +28,9 @@ sed s/${current_allowed_hosts}/$new_allowed_hosts/ <$currentnrpefile >${DIR}/nrp
 # rename nrpe.cfg file
 mv -f ${DIR}/nrpe.cfg.new $currentnrpefile
 
+## another way to to perform above two tasks in one line
+# sed -i 's/${current_allowed_hosts}/$new_allowed_hosts/g' $currentnrpefile 
+
 # restart nrpe
 /etc/init.d/nrpe restart
 
