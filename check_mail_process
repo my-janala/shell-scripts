@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mailq | egrep 'rejected|refused' -A5 -B 5 | mail -E -s 'mailq report for `date +%A-%D` from $HOSTNAME' mezbaur.rahman@informail.com
+mailq > /tmp/mailq_report
+mutt -s "mailq report and maillog from $HOSTNAME for `date +%A-%D`" -s /tmp/mailq_report mezbaur.rahman@informa.com < /var/log/maillog
