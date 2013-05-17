@@ -1,5 +1,9 @@
 #!/bin/bash
 
-mailq | egrep 'rejected|refused' -A5 -B 5 | mail -E -s 'mailq report for `date +%A-%D` from $HOSTNAME' mezbaur.rahman@informail.com
-mailq > /tmp/mailq_report
-mutt -s "mailq report and maillog from $HOSTNAME for `date +%A-%D`" -s /tmp/mailq_report mezbaur.rahman@informa.com < /var/log/maillog
+#!/bin/bash
+
+mailqueue=$(mailq)
+msg_not_sent=$(grep -i 'rejected|refused' /var/log/maillog | wc -l)
+msg_sent=$(grep -i 'sent' /var/log/maillog | wc -l)
+
+echo -e "Mailqueue reporting:\n $mailqueue=$(mailq),\n\nTotal mails sent: $msg_sent,\n\nNo. of mails either rejected or refused: $msg_not_sent " | mutt -s "mailq and maillog from $HOSTNAME for `date +%A-%D`"  <email_id>
