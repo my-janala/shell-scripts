@@ -4,7 +4,7 @@ yumtmp="/tmp/yum-check-update.$$"
 yum="/usr/bin/yum"
 
 yum check-update >& $yumtmp
-number=$(cat $ymptmp | egrep '(.i386|.x86_64|.noarch|.src)' | wc -l)
+number=$(cat $yumtmp | egrep '(.i386|.x86_64|.noarch|.src)' | wc -l)
 #yumstatus="$?"
 
 case $number in
@@ -14,7 +14,7 @@ exit 0
 ;;
 
 *)
-echo "Critical - $number of updates available "
+echo "Critical - $number updates available "
 exit 1
 
 esac
