@@ -1,0 +1,1 @@
+$ netstat -ntlp | awk '{print $6 $7}' | sed 's/LISTEN//' | cut -d"/" -f2|sort|uniq| grep -v foreign
