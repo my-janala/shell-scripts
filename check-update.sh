@@ -1,17 +1,9 @@
 #!/bin/bash
-yumtmp="/tmp/yum-check-update.$$"
-yum="/usr/bin/yum"
 
-#/sbin/runuser -s /bin/sh -m root -c "/usr/bin/yum check-update >& $yumtmp"
-
-sudo /bin/su - root -c "/usr/bin/yum check-update > /tmp/yum-check-update"
-#sudo /bin/su - root -c "/usr/bin/yum check-update > $yumtmp"
-#yum check-update >& $yumtmp
+## This script will alert nagios server for available updates on this machine.
+## The script is dependent on a cronjob on this server that produces /tmp/yum-check-update file.
 
 number=$(cat /tmp/yum-check-update | egrep '(.i386|.x86_64|.noarch|.src)' | wc -l)
-#number=$(cat $yumtmp | egrep '(.i386|.x86_64|.noarch|.src)' | wc -l)
-#number=`cat $yumtmp | wc -l`
-#number=2
 
 case $number in
 0)
