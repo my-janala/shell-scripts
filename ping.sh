@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # a ping loop
 
@@ -16,6 +15,7 @@ do
     echo "Failed"
     echo "{PREFIX}.{OCTET}" >> {DOWNHOSTS}
   fi
+done
 
 
     
