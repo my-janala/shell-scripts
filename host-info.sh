@@ -32,7 +32,7 @@ case $REPLY in
               ;;
         d|D)  ifconfig 
               ;;
-        e|E)  netstat -i
+        e|E)  netstat -ie
                 ;;
         f|F)    route -n
                 ;;
