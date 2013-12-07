@@ -34,7 +34,7 @@ case $REPLY in
               ;;
         e|E)  netstat -ie
                 ;;
-        f|F)    route -n
+        f|F)   netstat -r 
                 ;;
         g|G)  sysctl -A
               ;;
