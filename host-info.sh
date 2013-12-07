@@ -32,13 +32,13 @@ case $REPLY in
               ;;
         d|D)  ifconfig 
               ;;
-        e|E)  netstat -interfaces
+        e|E)  netstat -i
                 ;;
         f|F)    route -n
                 ;;
         g|G)  sysctl -A
               ;;
-        h|H)  dmesg
+        h|H)  sudo dmesg
               ;;
         *)    echo "Invalid entry" >&2
               exit 1
