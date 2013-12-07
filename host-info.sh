@@ -10,8 +10,10 @@ A. Display System Information
 B. Display Disk Space
 C. Display Progarms listening on ports
 D. Display IP Addresses
-E. Display Kernel Configuration
-F. Display Kernel Messages (dmesg)
+E. Display network interfaces
+F. Display Routing Information
+G. Display Kernel Configuration
+H. Display Kernel Messages (dmesg)
 Q. Quit
 "
 
