@@ -32,9 +32,13 @@ case $REPLY in
               ;;
         d|D)  ifconfig 
               ;;
-        e|E)  sysctl -A
+        e|E)  netstat -interfaces
+                ;;
+        f|F)    route -n
+                ;;
+        g|G)  sysctl -A
               ;;
-        f|F)  dmesg
+        h|H)  dmesg
               ;;
         *)    echo "Invalid entry" >&2
               exit 1
