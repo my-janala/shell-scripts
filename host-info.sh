@@ -38,10 +38,3 @@ case $REPLY in
               exit 1
               ;;
 esac
-
-              
-              
-              
-
-
-"
