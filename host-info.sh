@@ -14,32 +14,41 @@ E. Display network interfaces
 F. Display Routing Information
 G. Display Kernel Configuration
 H. Display Kernel Messages (dmesg)
+I. Display All Attached Disks (fdisk)
+J. Display Disk Space with All Attached Disks (GB)
+K. Show All Logical Volumes
 Q. Quit
 "
 
 read -p  "Enter selection [A, B, C, D, E, F or Q ] >"
 
 case $REPLY in 
-        q|Q)  echo "Program terminated"
-              exit 
-              ;;
-        a|A)  echo "Hostname : $HOSTNAME"
-              uptime
-              ;;
-        b|B)  df -h
-              ;;
-        c|C)  netstat -ntlp
-              ;;
-        d|D)  ifconfig 
-              ;;
-        e|E)  netstat -ie
+        q|Q)    echo "Program terminated"
+                exit 
                 ;;
-        f|F)   netstat -r 
+        a|A)    echo "Hostname : $HOSTNAME"
+                uptime
                 ;;
-        g|G)  sysctl -A
-              ;;
-        h|H)  sudo dmesg
-              ;;
+        b|B)    df -h
+                ;;
+        c|C)    netstat -ntlp
+                ;;
+        d|D)    ifconfig 
+                ;;
+        e|E)    netstat -ie
+                ;;
+        f|F)    netstat -r 
+                ;;
+        g|G)    sysctl -A
+                ;;
+        h|H)    sudo dmesg
+                ;;
+        i|I)    fdisk -l
+                ;;
+        j|J)    fdisk -l | grep GB
+                ;;
+        k|K)    lvdisplay
+                ;;
         *)    echo "Invalid entry" >&2
               exit 1
               ;;
